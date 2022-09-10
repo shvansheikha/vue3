@@ -7,15 +7,11 @@ npm install
 ```
 
 ```bash
-npx serve 
-```
-
-```bash
 npm install json-server --save-dev
 ```
 
 * create db.json file
 
 ```bash
-npx json-server db.json -p 3001
+npx run start
 ```
