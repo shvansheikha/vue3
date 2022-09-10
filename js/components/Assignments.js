@@ -3,17 +3,27 @@ import AssignmentCreate from "./AssignmentCreate.js";
 
 export default {
     template: `
-      <assignment-list class="" :assignments="filters.inProgress" title="In Progress"></assignment-list>
-      <assignment-list :assignments="filters.completed" title="Completed"></assignment-list>
-      <assignment-create @add="add"></assignment-create>
-
+      <div class="flex gap-8">
+      <assignment-list :assignments="filters.inProgress" title="In Progress">
+        <assignment-create @add="add"></assignment-create>
+      </assignment-list>
+      <assignment-list
+          v-if="showCompleted"
+          :assignments="filters.completed"
+          can-toggle
+          title="Completed"
+          @toggle="showCompleted= !showCompleted"
+      />
+      </div>
     `,
     components: {AssignmentList, AssignmentCreate},
 
     data() {
         return {
             newAssignment: "",
-            assignments: []
+            assignments: [],
+            showCompleted: true,
+            tags: ["math", "science", "arch"]
         }
     },
     created() {
@@ -36,8 +46,12 @@ export default {
             this.assignments.push({
                 name: name,
                 complete: false,
-                id: this.assignments.length + 1
+                id: this.assignments.length + 1,
+                tag: this.tags[this.random()]
             });
-        }
+        },
+        random() {
+            return Math.floor(Math.random() * 2);
+        },
     }
 }
