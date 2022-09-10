@@ -1,6 +1,5 @@
 import AssignmentList from "./AssignmentList.js";
 import AssignmentCreate from "./AssignmentCreate.js";
-import json from '../note.json' assert {type: "json"};
 
 export default {
     template: `
@@ -14,8 +13,15 @@ export default {
     data() {
         return {
             newAssignment: "",
-            assignments: json
+            assignments: []
         }
+    },
+    created() {
+        fetch('http://localhost:3001/assignments')
+            .then(response => response.json())
+            .then(assignments => {
+                this.assignments = assignments;
+            })
     },
     computed: {
         filters() {
