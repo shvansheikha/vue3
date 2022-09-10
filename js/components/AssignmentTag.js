@@ -2,7 +2,7 @@ export default {
     template: `
       <div class="flex gap-3 mt-2 mb-3">
       <button
-          @click="$emit('change', tag)"
+          @click="$emit('update:currentTag', tag)"
           v-for="tag in tags"
           class="border px-1 rounded text-sm"
           :class="{'border-blue-500 text-blue-500':tag === currentTag}">

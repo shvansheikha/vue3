@@ -1,2 +1,7 @@
 # vue3
-laracast vue course code
+
+Laracasts vue3 course code </h4>
+
+```bash
+ run: npx serve 
+```

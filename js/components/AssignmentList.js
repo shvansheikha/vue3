@@ -9,8 +9,7 @@ export default {
 
         <assignment-tag
             :initial-tags="assignments.map(a => a.tag)"
-            :current-tag="currentTag"
-            @change="currentTag = $event"
+            v-model:currentTag="currentTag"
         />
 
         <ul>
@@ -33,7 +32,7 @@ export default {
             if (this.currentTag === 'all') {
                 return this.assignments;
             }
-            
+
             return this.assignments.filter(a => a.tag === this.currentTag)
         }
     }
