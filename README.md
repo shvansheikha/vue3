@@ -3,19 +3,19 @@
 Laracasts vue3 course code </h4>
 
 ```bash
- run: npm install
+npm install
 ```
 
 ```bash
- run: npx serve 
+npx serve 
 ```
 
 ```bash
-run: npm install json-server --save-dev
+npm install json-server --save-dev
 ```
 
 * create db.json file
 
 ```bash
-run: npx json-server db.json -p 3001
+npx json-server db.json -p 3001
 ```
