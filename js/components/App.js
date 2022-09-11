@@ -2,8 +2,10 @@ import AppButton from "./AppButton.js";
 import Assignments from "./Assignments.js";
 
 export default {
-    components: {
-        'AppButton': AppButton,
-        'Assignments': Assignments,
-    }
+    template: `
+      <div class="grid gap-6">
+      <assignments></assignments>
+      </div>
+    `,
+    components: {AppButton, Assignments},
 }
